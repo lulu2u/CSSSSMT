@@ -1,0 +1,12 @@
+- name: "肯德基" 
+  aliases: [KFC, 肯德基餐厅] 
+  filter_action: "exclude" 
+  category: "fast_food" 
+- name: "麦当劳" 
+  aliases: [麦当劳餐厅, 金拱门] 
+  filter_action: "collect" 
+  category: "fast_food" 
+- name: "独立餐厅" 
+  aliases: [] 
+  filter_action: "collect" 
+  category: "independent" 

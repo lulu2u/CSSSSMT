@@ -1,0 +1,702 @@
+2025-12-28 02:43:20,760 - database - INFO -  ˝æ›ø‚≥ı ºªØÕÍ≥…
+2025-12-28 02:43:21,715 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.114:5000
+2025-12-28 02:43:21,716 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-12-28 02:43:39,602 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:43:39] "[32mGET / HTTP/1.1[0m" 302 -
+2025-12-28 02:45:55,476 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:45:55] "GET /login HTTP/1.1" 200 -
+2025-12-28 02:45:55,688 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:45:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-28 02:46:49,237 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:46:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-12-28 02:46:49,272 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:46:49] "GET / HTTP/1.1" 200 -
+2025-12-28 02:46:53,455 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:46:53] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:47:04,862 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:04] "GET /data HTTP/1.1" 200 -
+2025-12-28 02:47:37,278 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:37] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:47:45,673 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:45] "POST /api/crawl/start HTTP/1.1" 200 -
+2025-12-28 02:47:46,695 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:46,718 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:46] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:47,688 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:47,694 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:47] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:48,687 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:48,692 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:48] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:49,689 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:49,694 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:49] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:50,697 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:50,703 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:50] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:51,411 - __main__ - INFO - ≈¿≥Ê»ŒŒÒÕÍ≥…: 20251228024745
+2025-12-28 02:47:51,784 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:51,846 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:51] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:52,688 - app - ERROR - Exception on /api/crawl/status/20251228024745 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:52,694 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:52] "[35m[1mGET /api/crawl/status/20251228024745 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:52,721 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:52] "POST /api/crawl/start HTTP/1.1" 200 -
+2025-12-28 02:47:53,740 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:53,749 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:53] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:54,731 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:54,743 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:54] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:55,732 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:55,739 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:55] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:56,736 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:56,743 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:56] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:57,733 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:57,744 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:57] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:58,426 - __main__ - INFO - ≈¿≥Ê»ŒŒÒÕÍ≥…: 20251228024752
+2025-12-28 02:47:58,810 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:58,845 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:58] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:47:59,732 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:47:59,748 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:47:59] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:48:00,735 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:48:00,755 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:00] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:48:01,727 - app - ERROR - Exception on /api/crawl/status/20251228024752 [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 48, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\app.py", line 253, in get_crawl_status
+    return jsonify(status)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 215, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\Desktop\CSSSSMT\CSSSSMT\venv\Lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Thread is not JSON serializable
+2025-12-28 02:48:01,734 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:01] "[35m[1mGET /api/crawl/status/20251228024752 HTTP/1.1[0m" 500 -
+2025-12-28 02:48:01,828 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:01] "GET /data HTTP/1.1" 200 -
+2025-12-28 02:48:23,311 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:23] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:48:25,275 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:25] "GET / HTTP/1.1" 200 -
+2025-12-28 02:48:55,323 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:48:55] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:51:47,212 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:51:47] "GET /data HTTP/1.1" 200 -
+2025-12-28 02:51:57,439 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:51:57] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:52:04,538 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:52:04] "GET / HTTP/1.1" 200 -
+2025-12-28 02:52:07,039 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:52:07] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 02:52:09,499 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:52:09] "GET /data HTTP/1.1" 200 -
+2025-12-28 02:53:00,983 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 02:53:00] "GET /crawl HTTP/1.1" 200 -
+2025-12-28 03:20:55,456 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 03:20:55] "GET /data HTTP/1.1" 200 -
+2025-12-28 03:20:56,483 - werkzeug - INFO - 127.0.0.1 - - [28/Dec/2025 03:20:56] "GET /crawl HTTP/1.1" 200 -
