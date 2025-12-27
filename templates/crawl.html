@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% block title %}数据采集 - 美团外卖数据采集系统{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2><i class="fas fa-spider me-2"></i>数据采集</h2>
+        <p class="text-muted">采集美团外卖商家数据</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header"><i class="fas fa-cogs me-2"></i>采集设置</div>
+            <div class="card-body">
+                <form id="crawlForm">
+                    <div class="mb-3">
+                        <label for="citySelect" class="form-label">选择城市</label>
+                        <select class="form-select" id="citySelect" required>
+                            <option value="">请选择城市</option>
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option value="广州">广州</option>
+                            <option value="深圳">深圳</option>
+                            <option value="杭州">杭州</option>
+                            <option value="成都">成都</option>
+                            <option value="重庆">重庆</option>
+                            <option value="武汉">武汉</option>
+                            <option value="南京">南京</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="maxResults" class="form-label">采集数量</label>
+                        <select class="form-select" id="maxResults">
+                            <option value="50">50家</option>
+                            <option value="100" selected>100家</option>
+                            <option value="200">200家</option>
+                            <option value="500">500家</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="getPhone" checked>
+                            <label class="form-check-label" for="getPhone">获取商家电话</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="getRating" checked>
+                            <label class="form-check-label" for="getRating">获取评分信息</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="getSales" checked>
+                            <label class="form-check-label" for="getSales">获取月销量</label>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="startCrawl()">
+                            <i class="fas fa-play me-2"></i>开始采集
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-header"><i class="fas fa-tasks me-2"></i>采集进度</div>
+            <div class="card-body">
+                <div id="progressContainer" style="display: none;">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span id="progressText">正在准备...</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress" style="height: 20px;">
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 id="successCount">0</h5>
+                                    <small class="text-muted">成功采集</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 id="totalCount">0</h5>
+                                    <small class="text-muted">总计</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <button id="stopBtn" class="btn btn-danger" onclick="stopCrawl()" disabled>
+                            <i class="fas fa-stop me-2"></i>停止采集
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="noTaskMessage" class="text-center py-4 text-muted">
+                    <i class="fas fa-tasks fa-3x mb-3"></i>
+                    <p>暂无进行中的采集任务</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header"><i class="fas fa-info-circle me-2"></i>使用说明</div>
+            <div class="card-body">
+                <h5>采集内容：</h5>
+                <ul>
+                    <li>商家名称</li>
+                    <li>所在城市和区域</li>
+                    <li>商家分类</li>
+                    <li>联系电话</li>
+                    <li>评分信息</li>
+                    <li>月销售量</li>
+                    <li>商家地址</li>
+                </ul>
+                
+                <h5 class="mt-3">注意事项：</h5>
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <small>
+                        1. 请遵守相关法律法规<br>
+                        2. 避免频繁采集同一网站<br>
+                        3. 仅用于学习研究目的<br>
+                        4. 支持模拟数据演示
+                    </small>
+                </div>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    <small>
+                        当前为演示版本，使用模拟数据。<br>
+                        如需真实数据采集，请配置真实API接口。
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loadingModal"><div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0"><div class="modal-body text-center py-5">
+        <div class="spinner-border text-primary mb-3" style="width:3rem;height:3rem;"></div>
+        <h5>正在处理，请稍候...</h5>
+    </div></div>
+</div></div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentTaskId = null;
+let statusInterval = null;
+
+function startCrawl() {
+    const city = $('#citySelect').val();
+    if (!city) {
+        alert('请选择城市');
+        return;
+    }
+    
+    showLoading();
+    
+    fetch('/api/crawl/start', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({city: city})
+    })
+    .then(r => r.json())
+    .then(data => {
+        hideLoading();
+        if (data.success) {
+            currentTaskId = data.task_id;
+            $('#progressContainer').show();
+            $('#noTaskMessage').hide();
+            $('#stopBtn').prop('disabled', false);
+            startStatusPolling();
+            showMessage('success', '采集任务已启动');
+        } else {
+            showMessage('error', data.error);
+        }
+    })
+    .catch(e => {
+        hideLoading();
+        showMessage('error', '请求失败：' + e);
+    });
+}
+
+function startStatusPolling() {
+    if (statusInterval) clearInterval(statusInterval);
+    
+    statusInterval = setInterval(() => {
+        if (!currentTaskId) return;
+        
+        fetch('/api/crawl/status/' + currentTaskId)
+            .then(r => r.json())
+            .then(status => {
+                if (status.error) {
+                    clearInterval(statusInterval);
+                    showMessage('error', '任务不存在或已结束');
+                    return;
+                }
+                
+                const progress = status.progress || 0;
+                const total = status.total || 0;
+                const success = status.success || 0;
+                
+                $('#progressBar').css('width', progress + '%');
+                $('#progressPercent').text(progress + '%');
+                $('#progressText').text(`采集 ${status.city || ''} 数据中...`);
+                $('#successCount').text(success);
+                $('#totalCount').text(total);
+                
+                if (status.status === 'completed' || status.status === 'failed') {
+                    clearInterval(statusInterval);
+                    $('#stopBtn').prop('disabled', true);
+                    
+                    if (status.status === 'completed') {
+                        showMessage('success', `采集完成！成功采集 ${success} 条数据`);
+                    } else {
+                        showMessage('error', '采集任务失败');
+                    }
+                    
+                    setTimeout(() => {
+                        $('#progressContainer').hide();
+                        $('#noTaskMessage').show();
+                    }, 5000);
+                }
+            })
+            .catch(e => console.error('获取状态失败:', e));
+    }, 1000);
+}
+
+function stopCrawl() {
+    if (currentTaskId) {
+        clearInterval(statusInterval);
+        $('#stopBtn').prop('disabled', true);
+        showMessage('info', '采集任务已停止');
+    }
+}
+</script>
+{% endblock %}

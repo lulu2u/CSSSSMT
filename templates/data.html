@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block title %}数据查看 - 美团外卖数据采集系统{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2><i class="fas fa-database me-2"></i>数据查看</h2>
+        <p class="text-muted">查看和管理已采集的数据</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form id="filterForm" class="row g-3">
+            <div class="col-md-4">
+                <label for="filterCity" class="form-label">城市</label>
+                <select class="form-select" id="filterCity" name="city">
+                    <option value="">全部城市</option>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                    <option value="广州">广州</option>
+                    <option value="深圳">深圳</option>
+                    <option value="杭州">杭州</option>
+                    <option value="成都">成都</option>
+                </select>
+            </div>
+            
+            <div class="col-md-4">
+                <label for="filterRating" class="form-label">最低评分</label>
+                <select class="form-select" id="filterRating" name="min_rating">
+                    <option value="0">全部评分</option>
+                    <option value="4.5">4.5分以上</option>
+                    <option value="4.0">4.0分以上</option>
+                    <option value="3.5">3.5分以上</option>
+                    <option value="3.0">3.0分以上</option>
+                </select>
+            </div>
+            
+            <div class="col-md-4">
+                <label for="filterKeyword" class="form-label">关键词搜索</label>
+                <input type="text" class="form-control" id="filterKeyword" placeholder="输入店名、分类或地址关键词...">
+            </div>
+            
+            <div class="col-12">
+                <div class="d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-primary" onclick="applyFilters()">
+                        <i class="fas fa-filter me-2"></i>筛选
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetFilters()">
+                        <i class="fas fa-redo me-2"></i>重置
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div>
+            <i class="fas fa-table me-2"></i>数据列表
+            <span class="badge bg-primary ms-2">{{ data|length }}</span>
+        </div>
+        <div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-success" onclick="exportExcel()">
+                    <i class="fas fa-file-excel me-2"></i>导出Excel
+                </button>
+                <button type="button" class="btn btn-warning" onclick="refreshData()">
+                    <i class="fas fa-sync-alt me-2"></i>刷新
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>店名</th>
+                        <th>城市</th>
+                        <th>区域</th>
+                        <th>商圈</th>
+                        <th>分类</th>
+                        <th>电话</th>
+                        <th>评分</th>
+                        <th>月销</th>
+                        <th>地址</th>
+                        <th>采集时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td><small>{{ item.id }}</small></td>
+                        <td><strong>{{ item.name }}</strong></td>
+                        <td><span class="badge bg-primary">{{ item.city }}</span></td>
+                        <td>{{ item.district }}</td>
+                        <td>{{ item.business_district }}</td>
+                        <td><span class="badge bg-info">{{ item.category }}</span></td>
+                        <td>{{ item.phone }}</td>
+                        <td>
+                            <span class="badge bg-warning">
+                                <i class="fas fa-star me-1"></i>{{ item.rating }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-success">
+                                {{ item.monthly_sales }}
+                            </span>
+                        </td>
+                        <td><small>{{ item.address }}</small></td>
+                        <td><small>{{ item.crawl_time }}</small></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        {% if not data %}
+        <div class="text-center py-5 text-muted">
+            <i class="fas fa-database fa-3x mb-3"></i>
+            <p>暂无数据，请先采集数据</p>
+            <a href="{{ url_for('crawl_page') }}" class="btn btn-primary mt-2">
+                <i class="fas fa-spider me-2"></i>去采集数据
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body text-center">
+                <h6 class="card-title text-muted">数据总量</h6>
+                <h3 class="card-value">{{ data|length }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body text-center">
+                <h6 class="card-title text-muted">平均评分</h6>
+                <h3 class="card-value" id="avgRatingData">0.0</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body text-center">
+                <h6 class="card-title text-muted">平均月销</h6>
+                <h3 class="card-value" id="avgSalesData">0</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loadingModal"><div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0"><div class="modal-body text-center py-5">
+        <div class="spinner-border text-primary mb-3" style="width:3rem;height:3rem;"></div>
+        <h5>正在处理，请稍候...</h5>
+    </div></div>
+</div></div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function applyFilters() {
+    const city = $('#filterCity').val();
+    const minRating = $('#filterRating').val();
+    const keyword = $('#filterKeyword').val().trim();
+    
+    let url = '/data?';
+    if (city) url += 'city=' + encodeURIComponent(city) + '&';
+    if (minRating > 0) url += 'min_rating=' + minRating + '&';
+    if (keyword) url += 'keyword=' + encodeURIComponent(keyword);
+    
+    window.location.href = url.replace(/&$/, '');
+}
+
+function resetFilters() {
+    window.location.href = '/data';
+}
+
+function exportExcel() {
+    showLoading();
+    
+    const city = $('#filterCity').val();
+    const minRating = $('#filterRating').val();
+    
+    fetch('/api/export', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            format: 'excel',
+            filters: {
+                city: city || '',
+                min_rating: parseFloat(minRating) || 0
+            }
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        hideLoading();
+        if (data.success) {
+            window.location.href = '/api/download/' + data.filename;
+            showMessage('success', '导出成功，文件开始下载');
+        } else {
+            showMessage('error', data.error);
+        }
+    })
+    .catch(e => {
+        hideLoading();
+        showMessage('error', '导出失败');
+    });
+}
+
+function refreshData() {
+    window.location.reload();
+}
+
+// 计算平均评分和月销
+$(document).ready(function() {
+    let totalRating = 0;
+    let totalSales = 0;
+    let count = 0;
+    
+    $('tbody tr').each(function() {
+        const rating = parseFloat($(this).find('td:eq(7) .badge').text().match(/[\d.]+/)?.[0]) || 0;
+        const sales = parseInt($(this).find('td:eq(8) .badge').text().match(/\d+/)?.[0]) || 0;
+        
+        if (rating > 0) {
+            totalRating += rating;
+            totalSales += sales;
+            count++;
+        }
+    });
+    
+    if (count > 0) {
+        $('#avgRatingData').text((totalRating / count).toFixed(2));
+        $('#avgSalesData').text(Math.round(totalSales / count).toLocaleString());
+    }
+});
+</script>
+{% endblock %}

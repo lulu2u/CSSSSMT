@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}仪表盘 - 美团外卖数据采集系统{% endblock %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2><i class="fas fa-tachometer-alt me-2"></i>仪表盘</h2>
+        <p class="text-muted">系统概览和统计信息</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div><h6 class="card-title">商家总数</h6><h2 class="card-value">{{ stats.total or 0 }}</h2></div>
+            <div class="display-4 text-primary"><i class="fas fa-store"></i></div>
+        </div>
+    </div></div></div>
+    
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div><h6 class="card-title">覆盖城市</h6><h2 class="card-value">{{ stats.city_count or 0 }}</h2></div>
+            <div class="display-4 text-success"><i class="fas fa-city"></i></div>
+        </div>
+    </div></div></div>
+    
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div><h6 class="card-title">平均评分</h6><h2 class="card-value">{{ stats.avg_rating or 0 }}</h2></div>
+            <div class="display-4 text-warning"><i class="fas fa-star"></i></div>
+        </div>
+    </div></div></div>
+    
+    <div class="col-md-3"><div class="card stat-card"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div><h6 class="card-title">平均月销</h6><h2 class="card-value">{{ stats.avg_sales or 0 }}</h2></div>
+            <div class="display-4 text-info"><i class="fas fa-chart-line"></i></div>
+        </div>
+    </div></div></div>
+</div>
+
+<div class="row">
+    <div class="col-md-6"><div class="card"><div class="card-header"><i class="fas fa-spider me-2"></i>数据采集</div>
+        <div class="card-body"><p>采集美团外卖商家数据</p>
+            <a href="{{ url_for('crawl_page') }}" class="btn btn-primary"><i class="fas fa-play me-2"></i>开始采集</a>
+        </div></div></div>
+    
+    <div class="col-md-6"><div class="card"><div class="card-header"><i class="fas fa-database me-2"></i>数据管理</div>
+        <div class="card-body"><p>查看和导出数据</p>
+            <a href="{{ url_for('data_page') }}" class="btn btn-success"><i class="fas fa-eye me-2"></i>查看数据</a>
+            <button onclick="exportData()" class="btn btn-info"><i class="fas fa-download me-2"></i>导出数据</button>
+        </div></div></div>
+</div>
+
+<div class="modal fade" id="loadingModal"><div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0"><div class="modal-body text-center py-5">
+        <div class="spinner-border text-primary mb-3" style="width:3rem;height:3rem;"></div>
+        <h5>正在处理，请稍候...</h5>
+    </div></div>
+</div></div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function exportData() {
+    showLoading();
+    fetch('/api/export', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({format: 'excel'})
+    })
+    .then(r => r.json())
+    .then(data => {
+        hideLoading();
+        if (data.success) {
+            window.location.href = '/api/download/' + data.filename;
+            showMessage('success', '导出成功');
+        } else {
+            showMessage('error', data.error);
+        }
+    })
+    .catch(e => {
+        hideLoading();
+        showMessage('error', '导出失败');
+    });
+}
+</script>
+{% endblock %}
